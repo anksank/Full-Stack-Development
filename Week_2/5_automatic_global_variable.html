@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Auto Global Variables</title>
+
+</head>
+
+<body>
+  <script>
+    function show_money() {
+      /**
+       * money was not declared earlier, so assigning it a value here would declare this variable globally
+       * however, if var money = 2 was used, then the 2nd alert box will not show up because of an error
+       */
+      money = 2;
+      alert("In the function, the value of money = " + money);
+    }
+    show_money();
+    alert("In the main part, the value of money = " + money);
+  </script>
+</body>
+
+</html>

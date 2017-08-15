@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Logical Execution</title>
+
+</head>
+
+<body>
+  <script>
+    function first_function() {
+      alert("first_function is running !");
+      return false;
+    }
+
+    function second_function() {
+      alert("second_function is running !");
+      return true;
+    }
+    /**
+     * Since the result of the first_function is false, the second_function() is never executed.
+     * JavaScript does this because no matter what the result of second_function() will be, final result will be false.
+     */
+    var test_function_and = first_function() && second_function();
+
+    /**
+     * Similar thing happens in case of OR (||)
+     * If first condition is true, 2nd need not be executed.
+     */
+    var test_function_or = second_function() || first_function();
+    document.write("1st Result is " + test_function_and + "<br>");
+    document.write("2nd Result is " + test_function_or);
+  </script>
+</body>
+
+</html>
