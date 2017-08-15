@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<body onload="do_game();">
+  <script>
+    // declare global variables
+    var aColors = ["white", "silver", "gray", "black", "red", "maroon", "yellow",
+      "olive", "lime", "green", "aqua", "teal", "blue", "navy", "fuchsia",
+      "purple"
+    ];
+    aColors = aColors.sort();
+    var bFinished = false;
+    var target_index;
+    var totalColors = aColors.length;
+    var target;
+    var guess_input;
+    var total_guess = 0;
+
+    // main function of the game
+    function do_game() {
+      target_index = Math.floor(totalColors * Math.random());
+      target = aColors[target_index];
+
+      do {
+        guess_input = prompt("I am thinking of one of these colors:\n\n" +
+          aColors.join(", ") + "\nWhat color am I thinking of?");
+        total_guess++;
+        if (check_guess()) {
+          bFinished = true;
+
+        }
+      } while (!bFinished);
+
+    }
+
+    function not_match_case(situation) {
+      alert("Sorry, your guess is not correct!\n\n" +
+        "Hint: your color is alphabetically " +
+        situation + " than mine\n\n" +
+        "Please try again.");
+      return false;
+    }
+
+    function check_guess() {
+      if (guess_input === target) {
+        var myBody = document.getElementsByTagName("body")[0];
+        myBody.style.background = guess_input;
+        setTimeout(function() {
+          alert("Congratulations! You have guessed the color!\n\n" +
+            "It took you " + total_guess + " guesses to finish the game!\n\n" +
+            "You can see the color in the background");
+        }, 0);
+        return true;
+      }
+      else false;
+    }
+  </script>
+</body>
+
+</html>

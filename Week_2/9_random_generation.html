@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Radom Numbers</title>
+
+</head>
+
+<body>
+  <h1>Generating Random Number</h1>
+  <script>
+    /**
+     * This generates a random number between 0 and 1, including 0 but not 1.
+     * [0,1)
+     */
+    var random_number = Math.random();
+    document.write(random_number);
+  </script>
+  <p>To set up a range, we can multiply this random number by the max number. For example, random number from 0 to 10</p>
+  <script>
+    random_number = 10 * Math.random();
+    document.write(random_number);
+
+    /**
+     * To dump the decimal place, use Math.floor()
+     */
+    document.write("<br><br> Without decimal random number is - " + Math.floor(random_number));
+  </script>
+</body>
+
+</html>
