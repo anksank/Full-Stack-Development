@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Array Unshift and Shift</title>
+
+</head>
+
+<body>
+  <h1>Example to shift and unshift arrays</h1>
+  <p>
+    <script>
+      /**
+       * Example to shift and unshift arrays
+       * shift removes element from the front of the array
+       * unshift adds an element at the front of the array
+       * counterpart of shift is pop, and counterpart of unshift is push
+       */
+      var pets = ["Dog", "Cat", "Rabbit"];
+      document.write("Initial Array - " + pets);
+      document.write("<br>Array has 3 animals and lets add 'Mouse' at the beginning. Now the new length is - ");
+
+      document.write(pets.unshift("Mouse") + "<br><br>");
+      document.write(pets);
+
+      document.write("<br>Lets remove from the front now using shift()<br>");
+      document.write("This is removed - " + pets.shift());
+    </script>
+  </p>
+</body>
+
+</html>
