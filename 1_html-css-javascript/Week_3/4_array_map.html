@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>map</title>
+    <script>
+        document.write("function map (theArray, fn) {<br>" +
+            "&nbsp var results = [];<br>" +
+            "&nbsp for (var i = 0; i < theArray.length; i++) {<br>" +
+                "&nbsp &nbsp results.push(fn(theArray[i], i, theArray));<br>" +
+            "&nbsp }<br>" +
+            "&nbsp return results;<br>" +
+        "}<br>");
+
+        var square = function(e1) { return e1 * e1; }
+        var numbers = [1, 2, 3, 4];
+        var results = numbers.map(square);
+        alert(results);
+    </script>
+</head>
+<body>
+    <p>
+        <ul>
+            <li>
+                map (function) stores the result of each execution of the function into another array it returns.
+            </li>
+        </ul>
+    </p>
+    <p>
+
+    </p>
+    </body>
+    </html>
