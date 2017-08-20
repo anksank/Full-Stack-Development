@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Remove Child</title>
+    <script>
+    function delete_node() {
+        var this_node = document.getElementById("my_para");
+        // get the node and go to the parent to remove the child
+        this_node.parentNode.removeChild(this_node);
+    }
+    </script>
+</head>
+<body onclick="delete_node();">
+    <h1>
+        Please click on the webpage !
+    </h1>
+    <p id = "my_para">craziness will end if you click on this :(</p>
+</body>
+</html>

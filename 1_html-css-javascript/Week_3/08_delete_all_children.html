@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Remove All Children</title>
+    <script>
+    function remove_everything() {
+        var this_node = document.getElementsByTagName("body")[0];
+        // loop for all the children and keep removing
+        while (this_node.firstChild) {
+            this_node.removeChild(this_node.firstChild);
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <h1>
+        Please click on the webpage !
+    </h1>
+    <p id = "my_para">craziness will end if you click on this :(</p>
+    <button onclick="remove_everything();">Click Me !</button>
+</body>
+</html>
