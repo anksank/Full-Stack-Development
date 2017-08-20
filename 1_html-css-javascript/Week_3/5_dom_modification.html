@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Insert Before</title>
+    <script>
+    function add_line() {
+        var newElement = document.createElement("hr");
+        // give me the first body
+        var target = document.getElementsByTagName("body")[0];
+        target.insertBefore(newElement, target.firstChild);
+    }
+    </script>
+</head>
+<body onclick="add_line();">
+    <h1>
+        Please click on the webpage !
+    </h1>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Append Child</title>
+    <script>
+    function add_line() {
+        var newElement = document.createTextNode("This is cool");
+        // give me the element with id my_text
+        var target = document.getElementById("my_text");
+        target.appendChild(newElement);
+    }
+    </script>
+</head>
+<body onclick="add_line();">
+    <h1 id="my_text">
+        Please click on the webpage to appendChild
+    </h1>
+</body>
+</html>
