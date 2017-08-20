@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Timer Events</title>
+    <script>
+        function set_things_up() {
+            var wait_duration = prompt("How long do you want to sleep?");
+            setTimeout(show_wakeup_message, wait_duration);
+            setInterval(log_wakeup_message, wait_duration);
+        }
+        function show_wakeup_message() {
+            alert("WAKE UP! WAKE UP!");
+        }
+        // In case there is a loop of timer, use clearTimeout(the_timer) to clear the timer.
+        // where the_timer = setTimeout(a, b);
+        function log_wakeup_message() {
+            console.log("crazy timer will go on!")
+        }
+        // to clear the setInterval, clearInterval(the_timer) is used
+    </script>
+</head>
+<body onload="set_things_up();">
+    <h1>Alarm Clock example - Also check the logs to understand how setInterval works</h1>
+</body>
+</html>
