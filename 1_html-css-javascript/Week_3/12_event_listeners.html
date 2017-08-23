@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Event Listeners</title>
+
+</head>
+<body>
+    <button id="btn0" onclick="alert('Hello !');">Click Me !</button>
+    <button id="btn1">Remove listener</button>
+    <script>
+        function do_something() {
+            alert("Clicked");
+        }
+        var btn0 = document.getElementById("btn0");
+        btn0.addEventListener("click", do_something);
+
+        var btn1 = document.getElementById("btn1");
+        btn1.addEventListener("click", function () {
+            btn0.removeEventListener("click", do_something);
+        });
+        // we can only remove the event created by javascript
+    </script>
+</body>
+</html>

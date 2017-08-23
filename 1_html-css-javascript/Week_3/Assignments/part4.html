@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <title>Matching Game</title>
+    <style type="text/css">
+    img {
+        position: absolute;
+    }
+    div {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+    }
+    #rightSide {
+        left: 50%;
+        border-left: 1px solid black
+    }
+    #leftSide {
+        /* added to plot the leftSide div to end at center of screen */
+        right: 50%;
+    }
+    body {
+        text-align: center;
+    }
+    </style>
+</head>
+<body onload="generateFaces();">
+    <h1>
+        Matching Game
+    </h1>
+    <p>
+        Click on the extra smiling face on the left
+    </p>
+    <div id="leftSide">
+        <!-- this will contain all the faces on the left side÷ -->
+    </div>
+    <div id="rightSide">
+        <!-- this will contain all the faces on the right side -->
+    </div>
+    <script>
+        /**
+        * Handling the left side
+        */
+        var numberOfFaces = 5;
+        var theLeftSide = document.getElementById("leftSide");
+        function generateFaces() {
+            var iterator = numberOfFaces;
+            while (iterator--) {
+                // create a new img tag and set the src attribute
+                var faceImage = document.createElement("img");
+                faceImage.src = "https://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
+
+                // set the top and left of the img appropriately
+                faceImage.style.top = Math.floor(400 * Math.random()) + "px";
+                faceImage.style.left = Math.floor(400 * Math.random()) + "px";
+
+                theLeftSide.appendChild(faceImage);
+            }
+
+            /**
+            * Handling the right side
+            */
+            var theRightSide = document.getElementById("rightSide");
+
+            var leftSideImages = theLeftSide.cloneNode(true);
+            leftSideImages.removeChild(leftSideImages.lastChild);
+
+            // there is a css added for the leftSide div, which has to be removed here, hence the below line
+            leftSideImages.style.right = "inherit";
+            theRightSide.appendChild(leftSideImages);
+
+            // event handler for the last child of the leftSide
+            theLeftSide.lastChild.onclick = function nextLevel(event){
+                event.stopPropagation();
+
+                // code to delete all the faces on the left and right side
+                remove_everything(rightSide);
+                remove_everything(leftSide);
+
+                numberOfFaces += 5;
+                generateFaces();
+            };
+        }
+
+        var theBody = document.getElementsByTagName("body")[0];
+        theBody.onclick = function gameOver() {
+            alert("Game Over!");
+            theBody.onclick = null;
+            theLeftSide.lastChild.onclick = null;
+        };
+
+        function remove_everything(theNode) {
+            // loop for all the children and keep removing
+            while (theNode.firstChild) {
+                theNode.removeChild(theNode.firstChild);
+            }
+        }
+
+    </script>
+</body>
+</html>

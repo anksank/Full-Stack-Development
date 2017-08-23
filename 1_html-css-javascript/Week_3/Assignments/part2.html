@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <title>Matching Game</title>
+    <style type="text/css">
+    img {
+        position: absolute;
+    }
+    div {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+    }
+    #rightSide {
+        left: 50%;
+        border-left: 1px solid black
+    }
+    #leftSide {
+        right: 50%;
+    }
+    body {
+        text-align: center;
+    }
+    </style>
+</head>
+<body onload="generateFaces();">
+    <h1>
+        Matching Game
+    </h1>
+    <p>
+        Click on the extra smiling face on the left
+    </p>
+    <div id="leftSide">
+        <!-- this will contain all the faces on the left side÷ -->
+    </div>
+    <div id="rightSide">
+        <!-- this will contain all the faces on the right side -->
+    </div>
+    <script>
+        var numberOfFaces = 5;
+        var theLeftSide = document.getElementById("leftSide");
+        function generateFaces() {
+            while (numberOfFaces) {
+                // create a new img tag and set the src attribute
+                var faceImage = document.createElement("img");
+                faceImage.src = "https://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
+
+                // set the top and left of the img appropriately
+                faceImage.style.top = Math.floor(400 * Math.random()) + "px";
+                faceImage.style.left = Math.floor(400 * Math.random()) + "px";
+
+                theLeftSide.appendChild(faceImage);
+                numberOfFaces--;
+            }
+        }
+    </script>
+</body>
+</html>
