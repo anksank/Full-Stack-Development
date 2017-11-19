@@ -1,0 +1,32 @@
+<!-- 
+  fxLayout is used by angular to set the flex layout to horizontal or vertical
+  column = vertical
+  row = horizontal
+-->
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+    <!-- 
+        md-list = angular material list component, 
+        md-list is like the media object from bootstrap 
+        fxFlex = means that the component will be a single piece
+    -->
+    <div fxFlex>
+        <div>
+            <h3>Menu</h3>
+            <hr>
+        </div>
+    </div>
+    <div fxFlex>
+        <md-grid-list cols="2" rowHeight="200px">
+            <md-grid-tile *ngFor="let dish of dishes">
+                <img height="200px" src={{dish.image}} alt={{dish.name}}>
+                <md-grid-tile-footer>
+                    <!-- 
+                        uppercase (built-in angular pipe) pipe transforms the text to upper case
+                     -->
+                    <h1 md-line>{{ dish.name | uppercase }}</h1>
+                </md-grid-tile-footer>
+            </md-grid-tile>
+        </md-grid-list>
+    </div>
+    <app-dishdetail></app-dishdetail>
+</div>
